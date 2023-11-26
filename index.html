@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body * {
+            box-sizing: border-box;
+        }
+        img {
+            max-width: 100%;
+            width: auto;
+        }
+        .ntip,
+        .ntip_close {
+            background: #c8c8c8;
+            display: inline-block;
+            padding: 10px 20px;
+            border: 1px solid #b0b0b0;
+            border-radius: 3px;
+            color: #ffffff;
+            text-transform: uppercase;
+            font-size: 15px;
+        }
+        .box {
+            padding: 15px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+    </style>
+    <link rel="stylesheet" href="assets/index.css" type="text/css" media="all">
+    <script src="jquery.min.js" type="text/javascript"></script>
+    <script src="dev/nTooltip.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="box">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div style="text-align: center">
+            <div class="ntip"
+                 data-toggle="tooltip"
+                 data-placement="left"
+                 data-original-title="1 блок с текстом">
+                1 блок
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div style="text-align: right">
+            <div class="ntip_close"
+                 data-toggle="tooltip"
+                 data-placement="top"
+                 data-original-title="2 блок с текстом">
+                2 блок
+            </div>
+        </div>
+        <div style="text-align: left">
+            <div class="ntip"
+                 data-toggle="tooltip"
+                 data-placement="bottom"
+                 data-original-title="<div class='title-left'><img src='img/tigr.jpg' ></div><div class='title-right'>Lorem Ipsum adalah text contoh digunakan didalam industri pencetakan dan typesetting</div>">
+                3 блок
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div style="text-align: center">
+            <div class="ntip"
+                 data-toggle="tooltip"
+                 data-placement="right"
+                 data-original-title="4 блок с текстом">
+                4 блок
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script>
+
+
+        /* {
+        *       align: 'center',
+                placement: undefined,
+                elem_global: 'body',
+                top: 0,
+                left: 0,
+                time: 450,
+                resize: true,
+                start_elem: true,
+                stop_elem: true,
+
+                cursor: {
+                    event: 'hover',
+                    is_over: true,
+                },
+                elem: {
+                    eventStart: function(self, self_elem, options){},
+                    eventStop: function(self, self_elem, options){},
+                    name: 'nTooltip',
+                    width: 150,
+                    html: undefined,
+                    html_before: '',
+                    html_after: '',
+                    style: {
+                        'opacity': '0',
+                        'z-index' : '9999',
+                        'position' : 'absolute',
+                        'width' : '100%',
+                    }
+                },
+                before: {
+                    eventStart: function(self, self_elem, options){},
+                    eventStop: function(self, self_elem, options){},
+                    display: true,
+                    width: 15,
+                    height: 15,
+                    html: '',
+                    style: {
+                        'position' : 'absolute',
+                    }
+                },
+                animation: {
+                    eventStart: function(self, self_elem, options){},
+                    eventStop: function(self, self_elem, options){},
+                    active: true,
+                    moving: true,
+                    scale: true,
+                    scale_start: true,
+                    scale_end: true,
+                    time_scale: 600,
+                    to_1_css: { 'opacity': '0' },
+                    to_2_css: { 'opacity': '1' },
+                    end_1_css: { 'opacity': '1' },
+                    end_2_css: { 'opacity': '0' },
+        * } */
+
+        $('.ntip').nTooltip({
+            elem_global: '.box',
+        });
+
+        $('.ntip_close').nTooltip({
+            elem_global: '.box',
+            stop_elem: false,
+            elem: {
+                html_after: '<button class="close">x</button>',
+                eventStart: function(self, self_elem){
+                    $(self_elem).find('.close').on('click', function(){
+                        self.resizeElem().stopElem();
+                    });
+                },
+            },
+        });
+    </script>
+
+</body>
+</html>
